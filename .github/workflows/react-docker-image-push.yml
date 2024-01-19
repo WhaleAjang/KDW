@@ -91,4 +91,5 @@ jobs:
                   username: ${{ secrets.USER }} #ip 주소로 변경
                   script: |
                       cd testfile
+                      docker-compose down
                       docker-compose up -d
