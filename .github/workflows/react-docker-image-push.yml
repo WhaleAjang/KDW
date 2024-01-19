@@ -45,20 +45,13 @@ jobs:
               # 그 값이 true가 아닐 때만 npm install을 한다.
               # https://fe-developers.kakaoent.com/2022/220106-github-actions/
 
-            - name: version-check
-              run: npm --version
-
-            - name: dir check
-              run: ls -al
+            - name: Install Dependencies
+              if: steps.cache.outputs.cache-hit != 'true'
+              run: npm install
               working-directory: ./frontend
 
             - name: build
               run: npm run dev
-              working-directory: ./frontend
-
-            - name: Install Dependencies
-              if: steps.cache.outputs.cache-hit != 'true'
-              run: npm install
               working-directory: ./frontend
 
             # Docker에 연결하여 이미지를 빌드하고 Hub에 푸시한다.
