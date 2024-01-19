@@ -11,17 +11,21 @@ dotenv.config();
 
 //const HOST = "0.0.0.0";
 
-mongoose
-    .connect(process.env.MONGO_URI)
-    .then(() => console.log("MongoDB Connected..."))
-    .catch((err) => {
-        console.error(
-            "Failed to connect to MongoDB. Retrying in 5 seconds...",
-            err
-        );
-        setTimeout(connectWithRetry, 5000);
-    });
+const connectWithRetry = () => {
+    mongoose
+        .connect(process.env.MONGO_URI)
+        .then(() => console.log("MongoDB Connected..."))
+        .catch((err) => {
+            console.error(
+                "Failed to connect to MongoDB. Retrying in 5 seconds...",
+                err
+            );
+            setTimeout(connectWithRetry, 5000);
+        });
+};
 
+// Call connectWithRetry here
+connectWithRetry();
 app.use(cors());
 app.use(express.json());
 
