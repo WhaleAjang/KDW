@@ -53,6 +53,8 @@ jobs:
             - name: change dir
               run: cd frontend
 
+            - name: dir check
+              run: ls -al
             - name: build
               run: npm run dev
             - name: Install Dependencies
