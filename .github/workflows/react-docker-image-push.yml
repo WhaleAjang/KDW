@@ -51,7 +51,7 @@ jobs:
             - name: dir check
               run: ls -al
             - name: change dir
-              run: cd frontend
+              run: cd ./frontend
 
             - name: dir check
               run: ls -al
