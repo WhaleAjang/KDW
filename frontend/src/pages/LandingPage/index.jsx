@@ -106,7 +106,7 @@ const LandingPage = () => {
     return (
         <section>
             <div className="text-center m-7">
-                <h2>여행 상품 사이트</h2>
+                <h2>배포 자동화 1</h2>
             </div>
             {/* Filter */}
             <div className="flex gap-3">
