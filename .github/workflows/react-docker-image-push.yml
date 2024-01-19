@@ -74,13 +74,8 @@ jobs:
                   tags: ${{ secrets.DOCKERHUB_USERNAME }}/ajangfront
 
             # 마지막으로 ssh로 인스턴스에 연결하여 이미지를 Pull하고 컨테이너를 재시작한다.
-            - name: Start SSH Agent
-              run: eval "$(ssh-agent -s)"
-
-            - name: Add SSH private key to the agent
-              run: ssh-add <(echo "${{ secrets.SSH_KEY }}")
-
-            - name: Pull and restart Docker Container #aws 권한 설정 #key 설정3
+           
+            - name: Pull and restart Docker Container #aws 권한 설정 #key 설정4
               uses: appleboy/ssh-action@master
               with:
                   #key: ${{ secrets.SSH_KEY }}
