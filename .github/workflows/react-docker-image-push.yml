@@ -79,7 +79,7 @@ jobs:
               with:
                   key: ${{ secrets.SSH_KEY }}
                   host: ${{ secrets.HOST }}
-                  username: ${{ secrets.USER }}
+                  username: ${{ secrets.USER }} #ip 주소로 변경
                   script: |
                       cd testfile
                       docker-compose up -d
