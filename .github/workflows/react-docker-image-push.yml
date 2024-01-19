@@ -65,13 +65,21 @@ jobs:
             - name: Set up Docker Buildx
               uses: docker/setup-buildx-action@v2
 
-            - name: Build and push
+            - name: Front Build and push
               uses: docker/build-push-action@v4
               with:
                   context: ./frontend
                   file: ./frontend/Dockerfile
                   push: true
                   tags: ${{ secrets.DOCKERHUB_USERNAME }}/ajangfront
+
+            - name: Back Build and push
+              uses: docker/build-push-action@v4
+              with:
+                  context: ./backend
+                  file: ./backend/Dockerfile
+                  push: true
+                  tags: ${{ secrets.DOCKERHUB_USERNAME }}/ajangback
 
             # 마지막으로 ssh로 인스턴스에 연결하여 이미지를 Pull하고 컨테이너를 재시작한다.
 
