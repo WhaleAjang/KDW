@@ -69,10 +69,9 @@ jobs:
               uses: docker/build-push-action@v4
               with:
                   context: .
-                  file: ./Dockerfile
+                  file: ./frontend/Dockerfile
                   push: true
                   tags: ${{ secrets.DOCKERHUB_USERNAME }}/ajangfront
-                  working-directory: ./frontend
 
             # 마지막으로 ssh로 인스턴스에 연결하여 이미지를 Pull하고 컨테이너를 재시작한다.
             - name: Pull and restart Docker Container
