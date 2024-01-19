@@ -53,8 +53,15 @@ jobs:
             - name: change dir
               run: cd ./frontend
 
-            - name: dir check
-              run: ls -al
+            - name: Run Commands in the Frontend Directory
+              run: |
+                  # Change directory to the 'frontend' directory
+                  cd frontend
+
+                  # Now you are in the 'frontend' directory, you can run any commands here
+                  npm install
+                  npm run dev
+              working-directory: ./frontend
             - name: build
               run: npm run dev
             - name: Install Dependencies
