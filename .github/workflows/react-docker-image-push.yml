@@ -81,4 +81,5 @@ jobs:
                   host: ${{ secrets.HOST }}
                   username: ${{ secrets.USER }}
                   script: |
+                      cd testfile
                       docker-compose up -d
