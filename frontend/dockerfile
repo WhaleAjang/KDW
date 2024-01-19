@@ -33,7 +33,7 @@ WORKDIR /code
 COPY dist/ dist/
 
 # nginx Port를 설정한다.
-EXPOSE 80
+EXPOSE 3000
 
 # container가 종료될 때 정상종료를 유도한다.
 STOPSIGNAL SIGTERM
