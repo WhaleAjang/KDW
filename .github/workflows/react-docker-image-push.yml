@@ -50,6 +50,8 @@ jobs:
 
             - name: dir check
               run: ls -al
+            - name: change dir
+              run: cd frontend
 
             - name: build
               run: npm run dev
