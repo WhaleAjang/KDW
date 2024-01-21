@@ -7,6 +7,7 @@ const Product = require("../models/Product");
 const Payment = require("../models/Payment");
 const crypto = require("crypto");
 const async = require("async");
+const signAsync = promisify(jwt.sign);
 
 router.get("/auth", auth, async (req, res, next) => {
     return res.json({
@@ -50,8 +51,8 @@ router.post("/login", async (req, res, next) => {
         const payload = {
             userId: user._id.toHexString(),
         };
-        //token을 생성
-        const accessToken = jwt.sign(payload, process.env.JWT_SECRET, {
+        // 비동기로 JWT 서명
+        const accessToken = await signAsync(payload, process.env.JWT_SECRET, {
             expiresIn: "1h",
         });
         return res.json({ user, accessToken });
