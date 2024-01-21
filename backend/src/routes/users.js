@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require("../models/User");
 const router = express.Router();
+const { promisify } = require("util");
 const jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth");
 const Product = require("../models/Product");
