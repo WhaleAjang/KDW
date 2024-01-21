@@ -3,7 +3,8 @@ import axios from "axios";
 // dotenv.config();
 
 export const axiosInstance = axios.create({
-    baseURL: import.meta.env.PROD ? "" : "http://3.131.159.236:8080",
+    //baseURL: import.meta.env.PROD ? "" : "http://3.131.159.236:8080",
+    baseURL: "http://3.131.159.236:8080",
     //    baseURL: import.meta.env.PROD ? "" : "http://localhost:8080",
 });
 
