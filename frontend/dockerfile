@@ -34,6 +34,7 @@ COPY dist/ dist/
 
 # 컨테이너 Port를 설정한다.
 EXPOSE 3000
+#EXPOSE 80
 
 # container가 종료될 때 정상종료를 유도한다.
 STOPSIGNAL SIGTERM
