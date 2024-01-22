@@ -8,9 +8,6 @@ export const axiosInstance = axios.create({
     //baseURL: import.meta.env.PROD ? "" : "http://localhost:8080",
 });
 
-// 추가 코드
-console.log("BACKEND_SERVER:", process.env.BACKEND_SERVER);
-
 export const testInstance = axios.create({
     baseURL: import.meta.env.PROD ? "" : "http://localhost:8080",
 });
