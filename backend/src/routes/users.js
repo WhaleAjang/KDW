@@ -22,7 +22,7 @@ router.get("/auth", auth, async (req, res, next) => {
     });
 });
 
-app.get("/", (req, res, next) => {
+router.get("/", (req, res, next) => {
     console.log(req);
     res.json({ test: "plz" });
     return res.status(200);
