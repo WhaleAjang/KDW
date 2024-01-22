@@ -22,6 +22,13 @@ router.get("/auth", auth, async (req, res, next) => {
     });
 });
 
+app.get("/", (req, res, next) => {
+    console.log(req);
+    res.json({ test: "plz" });
+    return res.status(200);
+    //throw new Error("it is an error");
+});
+
 router.post("/register", async (req, res, next) => {
     try {
         const user = new User(req.body);
