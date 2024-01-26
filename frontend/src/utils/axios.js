@@ -3,8 +3,9 @@ import axios from "axios";
 // dotenv.config();
 
 export const axiosInstance = axios.create({
-    baseURL: import.meta.env.PROD ? "" : "http://18.191.138.50:8080",
-    //    baseURL: import.meta.env.PROD ? "" : "http://localhost:8080",
+    baseURL: process.env.BACKEND_SERVER || "http://3.131.159.236",
+    //baseURL: "http://3.131.159.236",
+    //baseURL: import.meta.env.PROD ? "" : "http://localhost:8080",
 });
 
 export const testInstance = axios.create({

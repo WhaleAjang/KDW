@@ -1,12 +1,14 @@
 const express = require("express");
 const User = require("../models/User");
 const router = express.Router();
+const { promisify } = require("util");
 const jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth");
 const Product = require("../models/Product");
 const Payment = require("../models/Payment");
 const crypto = require("crypto");
 const async = require("async");
+const signAsync = promisify(jwt.sign);
 
 router.get("/auth", auth, async (req, res, next) => {
     return res.json({
@@ -18,6 +20,13 @@ router.get("/auth", auth, async (req, res, next) => {
         cart: req.user.cart,
         history: req.user.history,
     });
+});
+
+router.get("/", (req, res, next) => {
+    console.log(req);
+    res.json({ test: "plz" });
+    return res.status(200);
+    //throw new Error("it is an error");
 });
 
 router.post("/register", async (req, res, next) => {
@@ -50,8 +59,8 @@ router.post("/login", async (req, res, next) => {
         const payload = {
             userId: user._id.toHexString(),
         };
-        //token을 생성
-        const accessToken = jwt.sign(payload, process.env.JWT_SECRET, {
+        // 비동기로 JWT 서명
+        const accessToken = await signAsync(payload, process.env.JWT_SECRET, {
             expiresIn: "1h",
         });
         return res.json({ user, accessToken });

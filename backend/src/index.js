@@ -3,7 +3,8 @@ const path = require("path");
 
 const app = express();
 
-const port = 8080;
+// const port = 8080;
+const port = process.env.PORT;
 const cors = require("cors");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
