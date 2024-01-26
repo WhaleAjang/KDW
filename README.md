@@ -8,3 +8,5 @@
 ## REviewers 자동생성 test
 ## REviewers 자동생성 test2
 ## REviewers 자동생성 test3
+
+## PR 리뷰어 설정 test1
